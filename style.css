@@ -184,9 +184,10 @@ line-height:1.02;
 letter-spacing:-3.7px;
 font-family:var(--font-heading);
 font-weight:800}
-.hero-copy h1 strong{color:var(--ink);margin-right:.16em}
+.hero-copy h1 strong{display:block;color:var(--ink);margin-bottom:.02em}
 .hero-copy h1 span{
-color:var(--green)}
+display:block;color:var(--green)}
+.hero-copy h1 .hero-priority{color:var(--ink)}
 .hero-text{
 max-width:610px;
 margin:25px 0 0;
