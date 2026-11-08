@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order | Zippy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header"><nav class="navbar container" aria-label="Tracking page navigation"><div class="nav-actions"><a class="btn btn-primary" href="index.html">← Back to Home</a></div></nav></header>
+  <main class="tracking-page">
+    <section class="tracking-search"><div class="container"><p class="eyebrow">Live delivery monitoring</p><h1>Track your delivery</h1><p>Enter your tracking number to follow your rider and package in real time.</p><form id="tracking-page-form" class="tracking-page-form" novalidate><input id="tracking-page-input" placeholder="Enter tracking number, e.g. ZIP123456" aria-label="Tracking number"><button class="btn btn-primary" type="submit">Track delivery →</button></form><p id="tracking-page-message" role="status"></p></div></section>
+    <section class="tracking-dashboard container" id="tracking-dashboard">
+      <aside class="delivery-panel">
+        <div class="delivery-state"><span class="live-dot"></span><div><small>Current status</small><strong id="delivery-status">In transit</strong></div></div>
+        <div class="progress-list" id="delivery-timeline">
+          <div class="progress-item complete" data-status="received"><span>✓</span><div><strong>Order received</strong><small>10:14 AM</small></div></div>
+          <div class="progress-item complete" data-status="assigned"><span>✓</span><div><strong>Rider assigned</strong><small>10:22 AM</small></div></div>
+          <div class="progress-item complete" data-status="picked-up"><span>✓</span><div><strong>Package picked up</strong><small>10:31 AM</small></div></div>
+          <div class="progress-item current" data-status="in-transit"><span>4</span><div><strong>In transit</strong><small>Moving toward destination</small></div></div>
+          <div class="progress-item" data-status="arriving"><span>5</span><div><strong>Arriving soon</strong><small>Pending</small></div></div>
+          <div class="progress-item" data-status="delivered"><span>6</span><div><strong>Successfully delivered</strong><small>Pending</small></div></div>
+        </div>
+        <div class="rider-profile"><div class="rider-avatar" id="rider-avatar">AO</div><div><small>Your rider</small><strong id="rider-name">Adebayo Okafor</strong><span id="rider-rating">★ 4.9 · 320 deliveries</span></div><a href="tel:+2348000000000" class="call-rider" id="rider-call" aria-label="Call rider">☎</a></div>
+        <div class="delivery-summary">
+          <div><small>Tracking ID</small><strong id="delivery-tracking-id">ZIP123456</strong></div>
+          <div><small>Package</small><strong id="delivery-package">Small parcel</strong></div>
+          <div><small>Recipient</small><strong id="delivery-recipient">Ada Okafor</strong></div>
+        </div>
+      </aside>
+      <div class="live-map">
+        <div class="map-grid"></div><div class="map-route route-one"></div><div class="map-route route-two"></div><div class="map-route route-three"></div>
+        <span class="location-pin pickup-pin">Pickup</span><span class="location-pin destination-pin">Destination</span><div class="moving-rider">▰</div>
+        <div class="eta-card"><small>Estimated arrival</small><strong id="eta-time">10:48 AM</strong><span id="eta-distance">8 minutes away</span></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

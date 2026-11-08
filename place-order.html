@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Place a delivery order with Zippy">
+  <title>Place an Order | Zippy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="order-page">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Order navigation">
+      <a href="index.html" class="logo" aria-label="Zippy home"><span class="logo-icon brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M10 8h25l-4.6 7.2H20l13.8 20.8H8.9l4.6-7.2h10.9L10 8Z"/></svg></span><span>Zippy.</span></a>
+      <a class="btn btn-light back-home" href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="order-hero">
+      <div class="container order-heading">
+        <p class="eyebrow">Fast doorstep delivery</p>
+        <h1>Place your order</h1>
+        <p>Tell us where to collect from and where it should go.</p>
+      </div>
+      <div class="container progress-card" aria-label="Order progress">
+        <div class="progress-step active" data-step-label="1"><span>1</span><div><strong>Delivery</strong><small>Addresses</small></div></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step-label="2"><span>2</span><div><strong>Package</strong><small>Details</small></div></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step-label="3"><span>3</span><div><strong>Review</strong><small>Confirm</small></div></div>
+      </div>
+    </section>
+
+    <section class="order-layout container">
+      <form id="order-form" class="order-form">
+        <div class="form-step active" data-step="1">
+          <div class="form-section-title"><span>01</span><div><h2>Delivery details</h2><p>Where are we collecting and delivering?</p></div></div>
+          <div class="address-field"><label for="pickup">Pickup address</label><div class="input-with-icon"><span>⌖</span><input id="pickup" name="pickup" required placeholder="Street, area or landmark"></div></div>
+          <div class="route-divider" aria-hidden="true"></div>
+          <div class="address-field"><label for="destination">Delivery destination</label><div class="input-with-icon"><span>●</span><input id="destination" name="destination" required placeholder="Street, area or landmark"></div></div>
+          <div class="form-grid">
+            <label>Recipient's name<input id="recipient" name="recipient" required placeholder="Full name"></label>
+            <label>Recipient's phone number<input id="phone" name="phone" type="tel" required minlength="7" maxlength="18" placeholder="e.g. 0801 234 5678"></label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <div class="form-section-title"><span>02</span><div><h2>Package details</h2><p>Choose the option that best describes your delivery.</p></div></div>
+          <fieldset class="package-types"><legend>Package type</legend>
+            <label><input type="radio" name="package" value="Document" data-fee="800" checked><span><b>Document</b><small>Letters and files</small></span><strong>₦800</strong></label>
+            <label><input type="radio" name="package" value="Small parcel" data-fee="1500"><span><b>Small parcel</b><small>Up to 5 kg</small></span><strong>₦1,500</strong></label>
+            <label><input type="radio" name="package" value="Medium parcel" data-fee="2500"><span><b>Medium parcel</b><small>Up to 15 kg</small></span><strong>₦2,500</strong></label>
+            <label><input type="radio" name="package" value="Large parcel" data-fee="4000"><span><b>Large parcel</b><small>Up to 30 kg</small></span><strong>₦4,000</strong></label>
+          </fieldset>
+          <label class="instructions">Delivery instructions<textarea id="instructions" name="instructions" rows="4" placeholder="Gate colour, call before arrival, floor number..."></textarea></label>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <div class="form-section-title"><span>03</span><div><h2>Review your order</h2><p>Make sure everything is correct before confirming.</p></div></div>
+          <div class="review-grid">
+            <div class="review-card"><small>Pickup</small><strong id="review-pickup">—</strong></div>
+            <div class="review-card"><small>Destination</small><strong id="review-destination">—</strong></div>
+            <div class="review-card"><small>Recipient</small><strong id="review-recipient">—</strong><span id="review-phone">—</span></div>
+            <div class="review-card"><small>Package</small><strong id="review-package">Document</strong><span id="review-instructions">No special instructions</span></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-light" id="previous-step" type="button" hidden>← Previous</button>
+          <button class="btn btn-primary" id="next-step" type="button">Continue <span>→</span></button>
+        </div>
+      </form>
+
+      <aside class="fee-card">
+        <p class="eyebrow">Delivery estimate</p>
+        <div class="fee-route"><span></span><div><small>Pickup</small><strong id="summary-pickup">Not entered</strong></div></div>
+        <div class="fee-route destination"><span></span><div><small>Destination</small><strong id="summary-destination">Not entered</strong></div></div>
+        <div class="fee-breakdown"><div><span>Delivery fee</span><strong id="delivery-fee">₦800</strong></div><div><span>Service fee</span><strong>₦200</strong></div></div>
+        <div class="fee-total"><span>Estimated total</span><strong id="estimated-total">₦1,000</strong></div>
+        <p class="fee-note">Final fee is confirmed before rider assignment.</p>
+      </aside>
+    </section>
+  </main>
+
+  <div class="order-modal" id="order-success" role="dialog" aria-modal="true" aria-labelledby="success-title" aria-hidden="true">
+    <div class="order-success-card"><div class="success-check">✓</div><p class="eyebrow">Order confirmed</p><h2 id="success-title">Your rider is being assigned</h2><p>Your Zippy order <strong id="order-number">ZIP000000</strong> has been received. We'll update you shortly.</p><a class="btn btn-primary" href="index.html">Return home</a><button class="btn btn-light" id="track-order" type="button">Track this order</button></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="place-order.js"></script>
+</body>
+</html>
