@@ -184,6 +184,7 @@ line-height:1.02;
 letter-spacing:-3.7px;
 font-family:var(--font-heading);
 font-weight:800}
+.hero-copy h1 strong{color:var(--ink);margin-right:.16em}
 .hero-copy h1 span{
 color:var(--green)}
 .hero-text{
