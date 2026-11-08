@@ -59,6 +59,7 @@ document.querySelectorAll('.auth-form').forEach(form => {
 
     const data = Object.fromEntries(new FormData(form).entries());
     const action = form.dataset.authAction;
+    if (action === 'register') data.full_name = `${data.surname.trim()} ${data.other_names.trim()}`;
     if (action === 'register' && !validPassword(data.password)) {
       setError(form, 'Password must contain at least 8 characters, including a letter and a number.');
       return;
