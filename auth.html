@@ -35,7 +35,10 @@
         <section data-auth-view="register" hidden>
           <p class="eyebrow">Join the movement</p><h2>Create your account</h2><p class="auth-intro">Start sending packages with Zippy today.</p>
           <form class="auth-form" data-auth-action="register" novalidate>
-            <label>Full name<input type="text" name="name" autocomplete="name" placeholder="e.g. Ada Okafor" minlength="2" required></label>
+            <div class="name-fields">
+              <label>Surname<input type="text" name="surname" autocomplete="family-name" placeholder="e.g. Okafor" minlength="2" required></label>
+              <label>Other names<input type="text" name="other_names" autocomplete="given-name" placeholder="e.g. Ada" minlength="2" required></label>
+            </div>
             <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
             <label>Phone number<input type="tel" name="phone" autocomplete="tel" placeholder="e.g. 0801 234 5678" minlength="7" maxlength="18" required></label>
             <label>Password<div class="password-control"><input type="password" name="password" autocomplete="new-password" placeholder="Create a strong password" minlength="8" required><button type="button" class="password-toggle" aria-label="Show password">Show</button></div><small class="field-hint">Use 8+ characters with a number and a letter.</small></label>
