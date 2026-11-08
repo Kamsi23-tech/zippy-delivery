@@ -66,6 +66,15 @@
             <div class="review-card"><small>Recipient</small><strong id="review-recipient">—</strong><span id="review-phone">—</span></div>
             <div class="review-card"><small>Package</small><strong id="review-package">Document</strong><span id="review-instructions">No special instructions</span></div>
           </div>
+          <div class="customer-negotiation" id="customer-negotiation-panel">
+            <div><p class="eyebrow">Rider price</p><h3>Make an offer</h3><p>Riders can accept or counter your delivery offer.</p></div>
+            <div class="negotiation-live-status" id="negotiation-live-status" role="status" aria-live="polite" hidden></div>
+            <div class="customer-offer"><span>Initial offer</span><strong id="customer-offer-display">₦1,000</strong></div>
+            <label for="customer-offer">Adjust your offer</label>
+            <div class="offer-input"><span>₦</span><input id="customer-offer" type="number" min="500" step="100" value="1000" aria-describedby="offer-help"></div>
+            <div class="offer-chips" aria-label="Quick price adjustments"><button type="button" data-adjust="-200">−₦200</button><button type="button" data-adjust="200">+₦200</button><button type="button" data-adjust="500">+₦500</button></div>
+            <small id="offer-help">You can negotiate with an available Zippy Rider.</small>
+          </div>
         </div>
 
         <div class="form-actions">
